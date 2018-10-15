@@ -4,7 +4,16 @@ body {
   font-family: sans-serif;
 }
 
+table {
+  border: 2px solid red;
+  background-color: lightblue;
+  width: auto;
+}
+
 td {
-  margin: 3px black;
-  border: 3 px black;
+  border: 2px solid black;
+}
+
+tbody td {
+  border: 2px solid green;
 }

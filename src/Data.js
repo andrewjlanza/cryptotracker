@@ -39,11 +39,11 @@ class Data extends Component {
           <tr>
             <th colSpan="4">Crypto Stats</th>
           </tr>
-          <tr className="categories">
-            <td>Name</td>
-            <td>Symbol</td>
-            <td>Price</td>
-            <td>24hr % Change</td>
+          <tr>
+            <td className="thing1">Name</td>
+            <td className="thing2">Symbol</td>
+            <td className="thing3">Price</td>
+            <td className="thing4">24hr % Change</td>
           </tr>
         </thead>
         <tbody>{coins}</tbody>
