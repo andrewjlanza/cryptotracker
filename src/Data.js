@@ -1,23 +1,54 @@
-import React, { Component } from "react"
-import Coins from "./Coins.json"
-import Coin from "./Coin.js"
+import React, { Component } from 'react'
+import Coin from './Coin.js'
+
 class Data extends Component {
-  state = {}
+  constructor(props) {
+    super(props)
+    this.state = { coins: [] }
+  }
+
+  componentDidMount() {
+    setInterval(() => {
+      fetch('https://api.coinmarketcap.com/v2/ticker/?limit=100')
+        .then(response => {
+          return response.json()
+        })
+        .then(myJson => {
+          this.setState({ coins: myJson.data })
+        })
+    }, 1000)
+  }
 
   render() {
-    let coins = Object.keys(Coins.data).map(id => {
-      let coin = Coins.data[id]
+    let coins = Object.keys(this.state.coins).map(id => {
+      let coin = this.state.coins[id]
       return (
         <Coin
           id={coin.id}
           name={coin.name}
           symbol={coin.symbol}
           price={coin.quotes.USD.price}
+          lastTwentyFour={coin.quotes.USD.percent_change_24h}
         />
       )
     })
 
-    return <div>{coins}</div>
+    return (
+      <table>
+        <thead>
+          <tr>
+            <th colSpan="4">Crypto Stats</th>
+          </tr>
+          <tr className="categories">
+            <td>Name</td>
+            <td>Symbol</td>
+            <td>Price</td>
+            <td>24hr % Change</td>
+          </tr>
+        </thead>
+        <tbody>{coins}</tbody>
+      </table>
+    )
   }
 }
 

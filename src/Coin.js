@@ -1,14 +1,14 @@
-import React, { Component } from "react"
-import Data from "./Data"
+import React, { Component } from 'react'
+
 class Coin extends Component {
   state = {}
   render() {
     return (
       <tr>
-        <td> {this.props.id}</td>
         <td>{this.props.name}</td>
         <td> {this.props.symbol}</td>
         <td> {this.props.price}</td>
+        <td>{this.props.lastTwentyFour}%</td>
       </tr>
     )
   }
