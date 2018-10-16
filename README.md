@@ -1,4 +1,4 @@
-![](https://imgur.com/JkRGo66)
+![](https://i.imgur.com/JkRGo66.png)
 Above is a screenshot of my application.
 
 
